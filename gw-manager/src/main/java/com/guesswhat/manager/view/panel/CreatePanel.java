@@ -29,8 +29,10 @@ public class CreatePanel extends JPanel implements ActionListener {
 	private JPanel centerPanel = new JPanel(new FlowLayout());
 	private JPanel southPanel = new JPanel(new FlowLayout());
 
-	private AnswerField answerField1 = null, answerField2 = null,
-			answerField3 = null, answerField4 = null;
+	private AnswerField answerField1 = null;
+	private AnswerField answerField2 = null;
+	private AnswerField answerField3 = null;
+	private AnswerField answerField4 = null;
 
 	private JButton resetButton = null;
 	private JButton uploadButton = null;

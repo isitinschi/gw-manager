@@ -17,8 +17,8 @@ import javax.swing.JScrollPane;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.guesswhat.manager.dto.QuestionDTO;
-import com.guesswhat.manager.services.face.ImageService;
-import com.guesswhat.manager.services.face.QuestionService;
+import com.guesswhat.manager.service.face.ImageService;
+import com.guesswhat.manager.service.face.QuestionService;
 import com.guesswhat.manager.view.field.AnswerField;
 
 @SuppressWarnings("serial")
@@ -34,8 +34,10 @@ public class UpdatePanel extends JPanel implements ActionListener {
 	private ImagePanel imageQuestionPanel = null;
 	private ImagePanel imageAnswerPanel = null;
 
-	private AnswerField answerField1 = null, answerField2 = null,
-			answerField3 = null, answerField4 = null;
+	private AnswerField answerField1 = null;
+	private AnswerField answerField2 = null;
+	private AnswerField answerField3 = null;
+	private AnswerField answerField4 = null;
 
 	private JButton loadButton = null;
 	private JButton removeButton = null;

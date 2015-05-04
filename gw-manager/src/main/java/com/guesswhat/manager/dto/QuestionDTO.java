@@ -1,6 +1,9 @@
 package com.guesswhat.manager.dto;
 
-public class QuestionDTO {
+import java.io.Serializable;
+
+@SuppressWarnings("serial")
+public class QuestionDTO  implements Serializable {
 	
 	private String id;
 	private String answer1;

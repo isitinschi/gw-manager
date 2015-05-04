@@ -14,8 +14,8 @@ import com.guesswhat.manager.dto.ComposedQuestionDTO;
 import com.guesswhat.manager.dto.ImageDTO;
 import com.guesswhat.manager.dto.ImageType;
 import com.guesswhat.manager.dto.QuestionDTO;
-import com.guesswhat.manager.services.face.QuestionService;
-import com.guesswhat.manager.services.face.SecurityService;
+import com.guesswhat.manager.service.face.QuestionService;
+import com.guesswhat.manager.service.face.SecurityService;
 import com.guesswhat.manager.utils.ImageUtils;
 import com.guesswhat.manager.utils.MessageDialog;
 
@@ -64,6 +64,7 @@ public class ManagerController {
 				case HDPI:		imageDTO.setHdpiImageId(bytes);break;
 				case MDPI:		imageDTO.setMdpiImageId(bytes);break;
 				case LDPI:		imageDTO.setLdpiImageId(bytes);break;
+				default:   		return null;
 			}
 		}
 		
@@ -107,6 +108,10 @@ public class ManagerController {
 		}
 		if (imageAnswer != null && imageAnswer.equals("")) {
 			correct = false;
+		}
+		
+		if (!correct) {
+			return correct;
 		}
 
 		// duplication

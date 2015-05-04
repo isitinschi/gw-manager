@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.guesswhat.manager.services.face.BackupService;
+import com.guesswhat.manager.service.face.BackupService;
 
 @SuppressWarnings("serial")
 public class BackupPanel extends JPanel implements ActionListener {

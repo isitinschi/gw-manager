@@ -40,8 +40,9 @@ public class AnswerField extends JRadioButton {
 
 		public void insertString(int offset, String str, AttributeSet attr)
 				throws BadLocationException {
-			if (str == null)
+			if (str == null) {
 				return;
+			}
 
 			if ((getLength() + str.length()) <= limit) {
 				super.insertString(offset, str, attr);

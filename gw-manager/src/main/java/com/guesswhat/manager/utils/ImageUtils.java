@@ -12,7 +12,6 @@ import com.guesswhat.manager.dto.ImageType;
 
 public class ImageUtils {
 
-	@SuppressWarnings("incomplete-switch")
 	public static BufferedImage scaleImage(BufferedImage bufferedImage, ImageType imageType) {
 		double scaleFactor = 1;
 		switch (imageType) {
@@ -20,6 +19,7 @@ public class ImageUtils {
 			case HDPI:		scaleFactor = 1 / 2.0;break;
 			case MDPI:		scaleFactor = 1 / 3.0;break;
 			case LDPI:		scaleFactor = 1 / 4.0;break;
+			default:   		return null;
 		}
 		
 		AffineTransform tx = new AffineTransform();

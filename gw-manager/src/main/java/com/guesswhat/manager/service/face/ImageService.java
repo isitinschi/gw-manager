@@ -1,4 +1,4 @@
-package com.guesswhat.manager.services.face;
+package com.guesswhat.manager.service.face;
 
 import java.awt.image.BufferedImage;
 

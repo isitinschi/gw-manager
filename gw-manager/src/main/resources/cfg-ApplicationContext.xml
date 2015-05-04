@@ -10,10 +10,10 @@
     <context:annotation-config />
     
 	<!-- SERVICES -->
-    <bean id="backupService" class="com.guesswhat.manager.services.impl.BackupServiceImpl" />
-    <bean id="imageService" class="com.guesswhat.manager.services.impl.ImageServiceImpl" />
-    <bean id="questionService" class="com.guesswhat.manager.services.impl.QuestionServiceImpl" />
-    <bean id="securityService" class="com.guesswhat.manager.services.impl.SecurityServiceImpl" />
+    <bean id="backupService" class="com.guesswhat.manager.service.impl.BackupServiceImpl" />
+    <bean id="imageService" class="com.guesswhat.manager.service.impl.ImageServiceImpl" />
+    <bean id="questionService" class="com.guesswhat.manager.service.impl.QuestionServiceImpl" />
+    <bean id="securityService" class="com.guesswhat.manager.service.impl.SecurityServiceImpl" />
     
     <!-- CONTROLLER -->
     <bean id="managerController" class="com.guesswhat.manager.controller.ManagerController" />

@@ -1,4 +1,4 @@
-package com.guesswhat.manager.services.impl;
+package com.guesswhat.manager.service.impl;
 
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
@@ -17,7 +17,7 @@ import javax.ws.rs.core.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.guesswhat.manager.dto.ImageType;
-import com.guesswhat.manager.services.face.ImageService;
+import com.guesswhat.manager.service.face.ImageService;
 import com.guesswhat.manager.utils.MessageDialog;
 import com.guesswhat.manager.utils.PropertyReader;
 

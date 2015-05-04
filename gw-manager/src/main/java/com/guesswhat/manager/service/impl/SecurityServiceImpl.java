@@ -1,4 +1,4 @@
-package com.guesswhat.manager.services.impl;
+package com.guesswhat.manager.service.impl;
 
 import java.nio.charset.Charset;
 
@@ -14,7 +14,7 @@ import javax.ws.rs.core.Response;
 
 import org.glassfish.jersey.internal.util.Base64;
 
-import com.guesswhat.manager.services.face.SecurityService;
+import com.guesswhat.manager.service.face.SecurityService;
 import com.guesswhat.manager.utils.MessageDialog;
 import com.guesswhat.manager.utils.PropertyReader;
 import com.guesswhat.manager.utils.UserRole;

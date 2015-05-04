@@ -1,4 +1,4 @@
-package com.guesswhat.manager.services.impl;
+package com.guesswhat.manager.service.impl;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.guesswhat.manager.dto.ComposedQuestionDTO;
 import com.guesswhat.manager.dto.QuestionDTO;
-import com.guesswhat.manager.services.face.QuestionService;
+import com.guesswhat.manager.service.face.QuestionService;
 import com.guesswhat.manager.utils.MessageDialog;
 import com.guesswhat.manager.utils.PropertyReader;
 

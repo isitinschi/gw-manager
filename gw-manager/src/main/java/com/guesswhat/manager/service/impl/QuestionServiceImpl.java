@@ -1,5 +1,6 @@
 package com.guesswhat.manager.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.client.Client;
@@ -82,6 +83,52 @@ public class QuestionServiceImpl implements QuestionService {
 		}
 	}
 
+	@Override
+	public List<ComposedQuestionDTO> downloadQuestionBackup() {
+		List<QuestionDTO> questions = findQuestions();
+		List<ComposedQuestionDTO> composedQuestions = new ArrayList<ComposedQuestionDTO>();
+		
+		Client client = ClientBuilder.newClient();
+		WebTarget webTarget = client.target(getQuestionUrl()).path("download");
+		Response response = null;
+		for (QuestionDTO questionDTO : questions) {
+			Builder invocationBuilder = webTarget.path(questionDTO.getId()).request();
+			invocationBuilder.header(HttpHeaders.AUTHORIZATION, securityService.getWriterAuthorization());
+			
+			response = invocationBuilder.post(Entity.entity("", MediaType.APPLICATION_JSON_TYPE));		
+			if (response.getStatus() != 200) {
+				MessageDialog.showErrorDialog("download", "question backup");
+			}
+			
+			ComposedQuestionDTO composedQuestionDTO = response.readEntity(ComposedQuestionDTO.class);
+			composedQuestions.add(composedQuestionDTO);
+		}
+		
+		return composedQuestions;
+	}
+
+	@Override
+	public void uploadQuestionBackup(List<ComposedQuestionDTO> composedQuestions) {
+		deleteQuestions();
+		for (ComposedQuestionDTO composedQuestionDTO : composedQuestions) {
+			createQuestion(composedQuestionDTO);
+		}
+	}
+	
+	private void deleteQuestions() {		
+		Client client = ClientBuilder.newClient();
+		WebTarget webTarget = client.target(getQuestionUrl());
+		Response response = null;
+		
+		Builder invocationBuilder = webTarget.path("delete").request();
+		invocationBuilder.header(HttpHeaders.AUTHORIZATION, securityService.getWriterAuthorization());
+		
+		response = invocationBuilder.delete();
+		if (response.getStatus() != 200) {
+			MessageDialog.showErrorDialog("delete", "questions");
+		}
+	}
+	
 	public void setSecurityService(SecurityServiceImpl securityService) {
 		this.securityService = securityService;
 	}

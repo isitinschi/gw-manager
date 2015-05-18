@@ -11,6 +11,7 @@
     
 	<!-- SERVICES -->
     <bean id="backupService" class="com.guesswhat.manager.service.impl.BackupServiceImpl" />
+    <bean id="recordService" class="com.guesswhat.manager.service.impl.RecordServiceImpl" />
     <bean id="imageService" class="com.guesswhat.manager.service.impl.ImageServiceImpl" />
     <bean id="questionService" class="com.guesswhat.manager.service.impl.QuestionServiceImpl" />
     <bean id="securityService" class="com.guesswhat.manager.service.impl.SecurityServiceImpl" />

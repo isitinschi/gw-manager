@@ -71,6 +71,8 @@ public class SecurityServiceImpl implements SecurityService {
 			MessageDialog.showErrorDialog("create", "admin user");
 			return;
 		}
+		
+		deleteUsers();
 
 		// reader
 		username = PropertyReader.getProperty("user.reader.login");
@@ -79,14 +81,6 @@ public class SecurityServiceImpl implements SecurityService {
 		f.param("username", username);
 		f.param("password", password);
 		f.param("role", UserRole.READER.toString());
-		
-		invocationBuilder = webTarget.path("delete").path(username).request();
-		invocationBuilder.header(HttpHeaders.AUTHORIZATION, getAdminAuthorization());
-		response = invocationBuilder.delete();
-		if (response.getStatus() != 200) {
-			MessageDialog.showErrorDialog("delete", "reader user");
-			return;
-		}
 		
 		invocationBuilder = webTarget.path("create").request();
 		invocationBuilder.header(HttpHeaders.AUTHORIZATION, getAdminAuthorization());
@@ -103,20 +97,25 @@ public class SecurityServiceImpl implements SecurityService {
 		f.param("username", username);
 		f.param("password", password);
 		f.param("role", UserRole.WRITER.toString());
-
-		invocationBuilder = webTarget.path("delete").path(username).request();
-		invocationBuilder.header(HttpHeaders.AUTHORIZATION, getAdminAuthorization());
-		response = invocationBuilder.delete();
-		if (response.getStatus() != 200) {
-			MessageDialog.showErrorDialog("delete", "writer user");
-			return;
-		}
 		
 		invocationBuilder = webTarget.path("create").request();
 		invocationBuilder.header(HttpHeaders.AUTHORIZATION, getAdminAuthorization());
 		response = invocationBuilder.post(Entity.entity(f, MediaType.APPLICATION_FORM_URLENCODED_TYPE));
 		if (response.getStatus() != 200) {
 			MessageDialog.showErrorDialog("create", "writer user");
+			return;
+		}
+	}
+	
+	private void deleteUsers() {
+		Client client = ClientBuilder.newClient();		
+		WebTarget webTarget = client.target(getSecurityUrl());
+		
+		Builder invocationBuilder = webTarget.path("delete").request();
+		invocationBuilder.header(HttpHeaders.AUTHORIZATION, getAdminAuthorization());
+		Response response = invocationBuilder.delete();
+		if (response.getStatus() != 200) {
+			MessageDialog.showErrorDialog("delete", "users");
 			return;
 		}
 	}

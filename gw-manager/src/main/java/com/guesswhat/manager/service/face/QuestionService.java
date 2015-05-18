@@ -10,5 +10,7 @@ public interface QuestionService {
 	void createQuestion(ComposedQuestionDTO composedQuestionDTO);
 	List<QuestionDTO> findQuestions();
 	void deleteQuestion(String questionId);
+	List<ComposedQuestionDTO> downloadQuestionBackup();
+	void uploadQuestionBackup(List<ComposedQuestionDTO> composedQuestions);
 	
 }

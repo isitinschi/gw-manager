@@ -81,6 +81,8 @@ public class ImagePanel extends JPanel implements MouseListener {
 		setMinimumSize(size);
 		setMaximumSize(size);
 		setSize(size);
+		repaint();
+		revalidate();
 	}
 
 	@Override

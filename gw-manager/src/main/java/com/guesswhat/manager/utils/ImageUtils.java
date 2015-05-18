@@ -15,6 +15,7 @@ public class ImageUtils {
 	public static BufferedImage scaleImage(BufferedImage bufferedImage, ImageType imageType) {
 		double scaleFactor = 1;
 		switch (imageType) {
+			case XXHDPI:	return bufferedImage;
 			case XHDPI:		scaleFactor = 1 / 1.5;break;
 			case HDPI:		scaleFactor = 1 / 2.0;break;
 			case MDPI:		scaleFactor = 1 / 3.0;break;
